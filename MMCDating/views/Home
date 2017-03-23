@@ -1,0 +1,15 @@
+<div class="container">
+<div class="row">
+    <md-whiteframe class="col-md-8 md-whiteframe-z1 main-content whitepanelmain">
+        <h2>Michael's Meeting Point</h2>
+        <div class="col-md-8" layout="column">
+            <div layout-padding class="inputdemoIcons">
+                <a href="#/profile">Upload Your Profile</a>
+                <a href="#/profile">Look For Your Match</a>
+                <a href="#/profile">Become A Member</a>
+                <strong>Have Fun,Stay Safe</strong>
+            </div>
+            </div>
+        </div>
+</md-whiteframe>
+</div>

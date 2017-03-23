@@ -1,0 +1,23 @@
+<div class="container">
+
+<h2 class="No_result_found">No record found</h2>
+
+    <div class="req-cont">
+        
+        <div class="req-part" ng-repeat="frndlist in RequestList" id="{{frndlist.FromUserId}}">
+            <div class="col-image">
+                <image src="{{frndlist.FromUserProfilePicture}}">
+            </div>
+            <div class="col-desc">
+               <h2>{{frndlist.FromUserName}}</h2>
+                <p>{{frndlist.FromUserAboutMe}}</p>
+            </div>
+            <div class="">
+                <md-button class="btn btn-success md-button md-default-theme" ng-click="response_request(frndlist.FromUserId,1)">Accept</md-button>
+                <md-button class="btn btn-warning md-button md-default-theme" ng-click="response_request(frndlist.FromUserId,0)">Decline</md-button>
+            </div>
+        </div>
+
+    </div>
+</div>
+

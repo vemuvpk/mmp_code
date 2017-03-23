@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MMCDatingModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Like">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="UsersLikes" Relationship="MMCDatingModel.FK_UsersLikes_Likes" FromRole="Like" ToRole="UsersLike" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="Int16" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="LookingforGender" Type="Int16" />
+    <Property Name="ProfilePicture" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ProfileVideo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="ThingsNotLike" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="AboutMe" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+    <Property Name="IsConfirmed" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="UsersLikes" Relationship="MMCDatingModel.FK_UsersLikes_Users" FromRole="User" ToRole="UsersLike" />
+    <Property Name="LocationName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="UsersLike">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" />
+    <Property Name="LikeId" Type="Int32" />
+    <NavigationProperty Name="Like" Relationship="MMCDatingModel.FK_UsersLikes_Likes" FromRole="UsersLike" ToRole="Like" />
+    <NavigationProperty Name="User" Relationship="MMCDatingModel.FK_UsersLikes_Users" FromRole="UsersLike" ToRole="User" />
+  </EntityType>
+  <EntityContainer Name="MMCDatingEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Likes" EntityType="Self.Like" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UsersLikes" EntityType="Self.UsersLike" />
+    <AssociationSet Name="FK_UsersLikes_Likes" Association="MMCDatingModel.FK_UsersLikes_Likes">
+      <End Role="Like" EntitySet="Likes" />
+      <End Role="UsersLike" EntitySet="UsersLikes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsersLikes_Users" Association="MMCDatingModel.FK_UsersLikes_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UsersLike" EntitySet="UsersLikes" />
+    </AssociationSet>
+    <EntitySet Name="UsersContacts" EntityType="MMCDatingModel.UsersContact" />
+    <EntitySet Name="UsersMessages" EntityType="MMCDatingModel.UsersMessage" />
+    <EntitySet Name="UsersChats" EntityType="MMCDatingModel.UsersChat" />
+    <EntitySet Name="UsersLoginLogs" EntityType="MMCDatingModel.UsersLoginLog" />
+    <EntitySet Name="Locations" EntityType="MMCDatingModel.Location" />
+  </EntityContainer>
+  <Association Name="FK_UsersLikes_Likes">
+    <End Type="MMCDatingModel.Like" Role="Like" Multiplicity="0..1" />
+    <End Type="MMCDatingModel.UsersLike" Role="UsersLike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Like">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersLike">
+        <PropertyRef Name="LikeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsersLikes_Users">
+    <End Type="MMCDatingModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="MMCDatingModel.UsersLike" Role="UsersLike" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UsersLike">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UsersContact">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromUserId" Type="Int32" />
+    <Property Name="ToUserId" Type="Int32" />
+    <Property Name="IsConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="UsersMessage">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromUserId" Type="Int32" Nullable="false" />
+    <Property Name="ToUserId" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersChat">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FromUserId" Type="Int32" Nullable="false" />
+    <Property Name="ToUserId" Type="Int32" Nullable="false" />
+    <Property Name="Message" Type="String" Nullable="false" MaxLength="2000" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UsersLoginLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="LoggedInTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="LoggedOutTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Location">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+</Schema>

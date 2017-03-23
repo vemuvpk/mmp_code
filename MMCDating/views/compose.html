@@ -1,0 +1,23 @@
+<div class="container">
+<div class="row">
+    <md-whiteframe class="col-md-8 md-whiteframe-z1 main-content whitepanelmain">
+        <h2>Compose Message</h2>
+        <div class="col-md-8" layout="column">
+            <div layout-padding class="inputdemoIcons">
+                <md-input-container flex>
+                    <label>Friend List</label>
+                    <md-select ng-model="compose.frndId">
+                        <md-option ng-repeat="frnds in frndList" value="{{frnds.ToUserId}}" >{{frnds.ToUserName}}</md-option>
+                    </md-select>
+                </md-input-container>
+                
+                <md-input-container flex>
+                        <label>Message</label>
+                        <textarea ng-model="compose.message" rows="1"></textarea>
+                </md-input-container>
+                <md-button class="md-primary md-raised md-hue-2" ng-click="sendMessage()">Send</md-button>
+            </div>
+        </div>
+    </md-whiteframe>
+</div>
+</div>

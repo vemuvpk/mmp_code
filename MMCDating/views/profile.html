@@ -1,0 +1,108 @@
+    <div class="container">
+        <div class="row">
+            <md-whiteframe class="col-md-8 main-content whitepanelmain md-whiteframe-z1">
+                <h2>Edit Profile</h2>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>First Name</label>
+                        <input ng-model="user.FirstName">
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Surname</label>
+                        <input type="text" ng-model="user.LastName">
+                    </md-input-container>
+                </div>
+                <div layout layout-sm="column" layout-align="space-between center">
+                    <div flex="40" class="btn-group" data-toggle="buttons" offset="10">
+
+                        <label class="btn btn-primary male_btn">
+                            <input type="radio" name="gender" value="male"  /> <i class="fa fa-male fa-2x"></i>
+                        </label>
+                        <label class="btn btn-primary female_btn">
+                            <input type="radio" name="gender" value="female" /> <i class="fa fa-female fa-2x"></i>
+                        </label>
+                    </div>
+                    <md-input-container flex>
+                        <label>Age</label>
+                        <input type="number" ng-model="user.Age">
+                    </md-input-container>
+                </div>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <google-places location=location></google-places>
+                    </md-input-container>
+
+                </div>
+                <md-input-container flex>
+                        <label>Email</label>
+                        <input type="text" ng-model="user.Email" style="color: #888;" disabled="disabled">
+                </md-input-container>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>What I am Looking for?</label>
+                        <md-select ng-model="user.LookingforGender" id="looking_for">
+                            <md-option value="1">Male</md-option>
+                            <md-option value="2">Female</md-option>
+                        </md-select>
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>City</label>
+                        <md-select ng-model="user.LocationName">
+                            <md-option ng-repeat="location in locations" value="{{location.Name}}">{{location.Name}}</md-option>
+                        </md-select>
+                    </md-input-container>
+                </div>
+                <div layout layout-sm="column">
+                    <div flex>
+                        <label>Upload your Profile Pic</label><span class="supported-format">(gif, jpeg, jpg, png)</span>
+                        <input type="file" accept="image/jpg" file-model="profile_pic" id="profilePic">
+                        <img ng-if="user.ProfilePicture!=''" src="{{user.ProfilePicture}}" class="profile_picture">
+                    </div>
+                    <div flex>
+                        <label>Upload a video file (only 30 sec)</label><span class="supported-format">(MP4, WebM, Ogg)</span>
+                        <input type="file"  file-model="profile_video" id="profileVid">
+
+                        <video class="profile_picture" style="height: 100%;" ng-if="user.ProfileVideo!=''" width="250" height="175" src="{{user.ProfileVideo}}" controls></video>
+                        </iframe >
+                    </div>
+                </div>
+                <div class="row">
+                    <md-input-container flex>
+                        <label>What I Like?</label>
+                    </md-input-container>
+                    <span class="col-md-3" ng-repeat="like in likes"><md-checkbox class="like_checkbox"  value="{{like.Id}}">{{like.Name}}</md-checkbox></span>
+                </div>
+                <div class="row">
+                    <md-input-container flex>
+                        <label>Things I Don't Like</label>
+                        <textarea ng-model="user.ThingsNotLike" rows="1" md-maxlength="500"></textarea>
+                    </md-input-container>
+
+                </div>
+                <div class="row">
+                    <md-input-container flex>
+                        <label>Special Things About Me</label>
+                        <textarea ng-model="user.AboutMe" rows="1" md-maxlength="500"></textarea>
+                    </md-input-container>
+
+                </div>
+                <div class="row">
+                    <div layout layout="column">
+                        <md-button class="btn btn-success" ng-click="editProfile();">Submit</md-button>
+                        <md-button class="btn btn-warning" ng-click="ResetProfile();">Reset</md-button>
+                    </div>
+
+                </div>
+            </md-whiteframe>
+            <div class="col-md-4">
+                <!-- <h2 class="special-text">Only $30 for a three month subscription.</h2> -->
+                <h3><span>Send a Contact Request</span></h3>
+                <p>Your profile will be sent to the person who want to meet. Then can decide if they would like more contact with you. Meet in our chat room first to find out more.</p>
+                <p><a href="#" role="button" class="btn btn-info btn-lg">Send</a></p>
+                <h3><span>Have fun, stay safe.</span></h3>
+                <p>We want you to have fun and enjoy yourself. Don't forget to let your parents or carers know what your are doing. Always meet in a busy public place. Never give out your financial details or personal information.</p>
+                <p><a href="#/about" role="button" class="btn btn-warning btn-lg">Learn more</a></p>
+
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,33 @@
+<div class="container">
+<div class="row">
+    <md-whiteframe class="col-md-8 md-whiteframe-z1 main-content whitepanelmain">
+        <h2>Contact Us</h2>
+        <div class="col-md-8" layout="column">
+            <div layout-padding class="inputdemoIcons">
+                <md-input-container class="md-icon-float" >
+                    <!-- Use floating label instead of placeholder -->
+                    <label>Name</label>
+                    <md-icon class="name"><i class="fa fa-user"></i></md-icon>
+                    <input ng-model="user.name" type="text">
+                </md-input-container>
+                <md-input-container>
+                    <!-- Use floating placeholder instead of label -->
+                    <md-icon class="email"><i class="fa fa-envelope"></i></md-icon>
+                    <input ng-model="user.email" type="email" placeholder="Email (required)" ng-required="true">
+                </md-input-container>
+                <md-input-container>
+                    <md-icon><i class="fa fa-phone"></i></md-icon>
+                    <input ng-model="user.phone" type="text" placeholder="Subject">
+                </md-input-container>
+                <md-input-container>
+                    <md-icon><i class="fa fa-sticky-note"></i></md-icon>
+                        <label style="margin-left:36px">Your Message/Question</label>
+                        <textarea style="margin-left:36px" ng-model="user.biography" rows="1" md-maxlength="200"></textarea>
+                    </md-input-container>
+                <md-button class="md-primary md-raised md-hue-2">Submit</md-button>
+                <md-button class="md-primary md-raised md-hue-2">Reset</md-button>
+            </div>
+            </div>
+        </div>
+</md-whiteframe>
+</div>

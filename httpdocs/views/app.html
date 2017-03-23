@@ -1,0 +1,49 @@
+<div class="text-center three-blocks">
+    <div class="container">
+        <div class="row">
+            <div class="special-text well-lg text-center">
+                <h2>"Everybody deserves someone special."</h2>
+            </div>
+            <div class="col-md-4 gallery">
+                <img src="../images/profile/3_1.jpg" class="img-thumbnail"  alt=""/>
+            </div>
+            <div class="col-md-4" data-ng-controller="AppCtrl as controller" style="height: 200px">
+                <videogular vg-theme="controller.config.theme.url">
+                    <vg-media vg-src="controller.config.sources"
+                              vg-tracks="controller.config.tracks">
+                    </vg-media>
+                    <vg-controls vg-autohide="controller.config.plugins.controls.autoHide" vg-autohide-time="controller.config.plugins.controls.autoHideTime">
+                        <vg-play-pause-button></vg-play-pause-button>
+                        <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                        <vg-scrub-bar>
+                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                        </vg-scrub-bar>
+                        <vg-time-display>{{ totalTime | date:'mm:ss' }}</vg-time-display>
+                        <vg-volume>
+                            <vg-mute-button></vg-mute-button>
+                            <vg-volume-bar></vg-volume-bar>
+                        </vg-volume>
+                        <vg-playback-button></vg-playback-button>
+                        <vg-fullscreen-button></vg-fullscreen-button>
+                    </vg-controls>
+                    <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+                </videogular>
+            </div>
+            <div class="col-md-4 gallery">
+                <img src="../images/profile/6_1.jpg" class="img-thumbnail" alt=""/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <h3>You must be over 18 to enter and Accept our <a href="#/terms">Terms & Conditions</a> <md-input><input type="checkbox" ng-model="check" </md-input></h3>
+            </div>
+            <div class="col-md-12">
+                <md-button class="md-raised md-primary" ng-disabled="!check" data-ng-href="#/main">Enter</md-button>
+            </div>
+        </div>
+        <!--<div class="row">-->
+            <!--<p> At Michael's Meeting Point we understand the extra requirments for people with special needs. Parents and carers are encouraged to be involved. You can have administration over this account. <strong><a href="">Click here</a> to have administration control.</strong></p>-->
+<!--</p>-->
+        <!--</div>-->
+    </div>
+</div>

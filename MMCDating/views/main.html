@@ -1,0 +1,159 @@
+<div class="row grey-info-block">
+    <div class="container">
+        <div class="row" layout="row"  layout-sm="column" layout-margin>
+            <div flex>
+                    <md-whiteframe class="md-whiteframe-z1">
+                        <div>
+                        <md-toolbar md-scroll-shrink>
+                            <div class="md-toolbar-tools">
+                                <h3>
+                                    <span>Search</span>
+                                </h3>
+                            </div>
+                        </md-toolbar>
+                            </div>
+                        <div class="whitepanel">
+                        <form class="form" id="cvbcb">
+                            <div layout layout-sm="column">
+                                <md-input-container flex>
+                                    <label>I am</label>
+                                    <md-select ng-model="ctrl.Gender">
+                                        <md-option value="1">Male</md-option>
+                                        <md-option value="2">Female</md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <md-input-container flex>
+                                    <label>Looking for</label>
+                                    <md-select ng-model="ctrl.LookingForGender">
+                                        <md-option value="1">Male</md-option>
+                                        <md-option value="2">Female</md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <md-input-container flex>
+                                    <label>City</label>
+                                    <md-select ng-model="ctrl.LocationName">
+                                        <md-option value="">All</md-option>
+                                        <md-option ng-repeat="location in locations" value="{{location.Name}}">{{location.Name}}</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div layout layout-sm="column">
+                                <md-input-container flex>
+                                        <label class="md-body-1">Age from</label>
+                                    <md-slider flex min="18" max="65" ng-model="ctrl.FromAge" aria-label="red" id="red-slider" class>
+                                    </md-slider>
+                                        <input ng-model="ctrl.FromAge" aria-label="red" aria-controls="red-slider">
+                                    </md-input-container>
+                                <md-input-container flex>
+                                        <label class="md-body-1">Age upto</label>
+                                    <md-slider flex min="18" max="65" ng-model="ctrl.ToAge" aria-label="upto" id="upto-slider" class>
+                                    </md-slider>
+                                        <input ng-model="ctrl.ToAge" aria-label="upto" aria-controls="upto-slider">
+                                </md-input-container>
+                            </div>
+                            <div layout layout="column">
+                                <md-input-container flex>
+                                    <google-places location=location></google-places>
+                                </md-input-container>
+                                </div>
+                            <div layout layout="column">
+                                <md-button class="btn btn-success" ng-click="search();">Search</md-button>
+                                <md-button class="btn btn-warning">Reset</md-button>
+                            </div>
+                        </form>
+                            </div>
+                    </md-whiteframe>
+            </div>
+            <div flex="40" class="UserLoggedOut">
+                <md-whiteframe>
+                    <div>
+                        <md-toolbar md-scroll-shrink>
+                            <div class="md-toolbar-tools">
+                                <h3>
+                                    <span>Sign in</span>
+                                </h3>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <div class="whitepanel">
+                        <form class="form" id="formLogin">
+
+                            <md-input-container>
+                                <md-icon class="email"><i class="fa fa-envelope"></i></md-icon>
+
+                                <input ng-model="user.email" type="email" placeholder="Email (required)"
+                                       ng-required="true">
+                            </md-input-container>
+                            <md-input-container>
+                                <md-icon class="name"><i class="fa fa-key"></i></md-icon>
+                                <input ng-model="user.password" type="password" placeholder="Password (required)" ng-required="true">
+                            </md-input-container>
+
+                            <md-checkbox>Remember Me?</md-checkbox>
+                            <md-input-container flex><a href="#/forgot">Forgot Password?</a>
+                                <md-button class="btn btn-info" ng-click="login();">Sign in</md-button>
+                            </md-input-container>
+
+<div flex>
+                                <span>Don't have an Account? Become a member <a href="#/signup">here</a></span>
+    </div>
+
+                        </form>
+                    </div>
+
+                </md-whiteframe>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="jcarousel-wrapper">
+            <div class="jcarousel">
+                <ul>
+                    <li ng-repeat="result in search_result">
+                        <img ng-if="result.ProfilePicture!=''" src="{{result.ProfilePicture}}" alt=" " class="promo-img {{blurimg}}"  />
+                        <img ng-if="result.ProfilePicture==''" src="images/profilepic.png" alt=" " class="promo-img {{blurimg}}" />
+                        <a ng-click="view_profile(result.UserId);"><div class="promo-details">
+                            <h3>{{result.FirstName}}&nbsp;{{result.LastName}}</h3>
+                            <p>{{result.AboutMe}}</p>
+                        </div></a>
+                  </li> 
+                </ul>
+            </div>
+            <a  class="jcarousel-control-prev">&nbsp;</a>
+            <a  class="jcarousel-control-next">&nbsp;</a>
+        </div>
+<script type="application/javascript" src="scripts/jquery.jcarousel.min.js"></script>
+<script type="application/javascript" src="scripts/jcarousel.responsive.js"></script>
+
+
+
+        <div flex>
+            <h3>Recently joined</h3>
+            <hr>
+            <div id="portfolio" class="row no_padding title__block nothing no-margin">
+                <ul id="Grid" class="gallery">
+                    <li ng-repeat="recent in recentUser" class="mix webdesign col-sm-4 mix_all" style="display: block; opacity: 1;"> <a ng-click="view_profile(recent.UserId);">
+                        <img ng-if="recent.ProfilePicture!=''" alt="" src="{{recent.ProfilePicture}}" class="img-thumbnail" > 
+                        <img ng-if="recent.ProfilePicture==''" alt="" src="images/profilepic.png" class="img-thumbnail" >
+                        <span class="text">{{recent.FirstName}}&nbsp;{{recent.LastName}}<span>{{recent.AboutMe}}</span></span></a> </li>
+                </ul>
+
+            </div>
+
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="special-text well-lg text-center">
+            <h2> At Michael's Meeting Point we understand the extra requirments for people with special needs. Parents and carers are encouraged to be involved. You can have administration over this account. <strong><a href="">Click here</a> to have administration control.</strong></h2>
+                </div>
+        </div>
+    </div>
+</div>

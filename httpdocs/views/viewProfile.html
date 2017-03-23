@@ -1,0 +1,73 @@
+    <div class="container">
+        <div class="row">
+            <md-whiteframe class="col-md-8 main-content md-whiteframe-z1 whitepanelmain">
+                <h2><span>View Profile</span></h2>
+                <div layout layout-sm="column">
+                <div class="row">
+                   <div class="col-md-6">
+                    <div flex>
+                        <label>First Name</label>
+                        <span>ksdjf kdfjdsfk</span>
+                    </div>
+                    <div flex>
+                        <label>Last Name</label>
+                        <span>ksdjf kdfjdsfk</span>
+                    </div>
+                       <div flex>
+                           <label>Gender</label>
+                           <span>Male/Female</span>
+                       </div>
+                       <div flex>
+                           <label>Age</label>
+                           <span>90</span>
+                       </div>
+                       <div flex>
+                           <label>Likes</label>
+                           <span>90</span>
+                       </div>
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="gallery" flex>
+                            <img alt="" src="../images/profilepic.png"  class="img-thumbnail">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label>Video</label>
+                        <videogular vg-theme="controller.config.theme.url">
+                            <vg-media vg-src="controller.config.sources"
+                                      vg-tracks="controller.config.tracks">
+                            </vg-media>
+                            <vg-controls vg-autohide="controller.config.plugins.controls.autoHide" vg-autohide-time="controller.config.plugins.controls.autoHideTime">
+                                <vg-play-pause-button></vg-play-pause-button>
+                                <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                                <vg-scrub-bar>
+                                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                </vg-scrub-bar>
+                                <vg-time-display>{{ totalTime | date:'mm:ss' }}</vg-time-display>
+                                <vg-volume>
+                                    <vg-mute-button></vg-mute-button>
+                                    <vg-volume-bar></vg-volume-bar>
+                                </vg-volume>
+                                <vg-playback-button></vg-playback-button>
+                                <vg-fullscreen-button></vg-fullscreen-button>
+                            </vg-controls>
+                            <vg-poster vg-url='controller.config.plugins.poster'></vg-poster>
+                        </videogular>
+                    </div>
+                    </div>
+
+                </div>
+            </md-whiteframe>
+            <div class="col-md-4">
+                <h2 class="special-text">Only $30 for a three month subscription.</h2>
+                <h3><span>Send a Contact Request</span></h3>
+                <p>Your profile will be sent to the person who want to meet. Then can decide if they would like more contact with you. Meet in our chat room first to find out more.</p>
+                <p><a href="#" role="button" class="btn btn-info btn-lg">Send</a></p>
+                <h3><span>Have fun, stay safe.</span></h3>
+                <p>We want you to have fun and enjoy yourself. Don't forget to let your parents or carers know what your are doing. Always meet in a busy public place. Never give out your financial details or personal information.</p>
+                <p><a href="#" role="button" class="btn btn-warning btn-lg">Learn more</a></p>
+
+            </div>
+        </div>
+    </div>

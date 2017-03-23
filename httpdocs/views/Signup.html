@@ -1,0 +1,39 @@
+<div class="container">
+    <div class="row">
+        <md-whiteframe class="col-md-8 main-content md-whiteframe-z1 whitepanelmain">
+            <h2>Sign up</h2>
+                            <form class="form" id="formSignup">
+                                <div class="row">
+                                    <md-input-container flex>
+                                        <md-icon class="email"><i class="fa fa-envelope"></i></md-icon>
+                                        <input ng-model="signup.email" type="email" placeholder="Email (required)"
+                                               ng-required="true">
+                                    </md-input-container>
+                                    </div>
+                                <div class="row">
+                                    <md-input-container flex>
+                                        <md-icon class="email"><i class="fa fa-envelope"></i></md-icon>
+                                        <input ng-model="signup.confirmEmail" type="email" placeholder="Confirm Email"
+                                               ng-required="true">
+                                    </md-input-container>
+                                </div>
+                                <div class="row">
+                                    <md-input-container flex>
+                                        <md-icon class="name"><i class="fa fa-key"></i></md-icon>
+                                        <input ng-model="signup.pwd" type="password" placeholder="Password (required)" ng-required="true"/>
+                                    </md-input-container>
+                                    </div>
+                                <div class="row">
+                                    <md-input-container flex>
+                                        <md-icon class="name"><i class="fa fa-key"></i></md-icon>
+                                        <input ng-model="signup.confirmPwd" type="password" placeholder="Confirm Password" ng-required="true"/>
+                                    </md-input-container>
+                                </div>
+                                <div layout layout="column">
+                                    <md-button class="btn btn-success">Submit</md-button>
+                                    <md-button class="btn btn-warning">Reset</md-button>
+                                </div>
+                            </form>
+</md-whiteframe>
+        </div>
+    </div>

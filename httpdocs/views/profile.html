@@ -1,0 +1,94 @@
+    <div class="container">
+        <div class="row">
+            <md-whiteframe class="col-md-8 main-content whitepanelmain md-whiteframe-z1">
+                <h2>Edit Profile</h2>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>First Name</label>
+                        <input ng-model="user.company">
+                    </md-input-container>
+                    <md-input-container flex>
+                        <label>Surname</label>
+                        <input type="text" ng-model="user.submissionDate">
+                    </md-input-container>
+                </div>
+                <div layout layout-sm="column" layout-align="space-between center">
+                    <div flex="40" class="btn-group" data-toggle="buttons" offset="10">
+
+                        <label class="btn btn-primary">
+                            <input type="radio" name="gender" value="male" /> <i class="fa fa-male fa-2x"></i>
+                        </label>
+                        <label class="btn btn-primary">
+                            <input type="radio" name="gender" value="female" /> <i class="fa fa-female fa-2x"></i>
+                        </label>
+                    </div>
+                    <md-input-container flex>
+                        <label>Age</label>
+                        <input type="number">
+                    </md-input-container>
+                </div>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <google-places location=location></google-places>
+                    </md-input-container>
+
+                </div>
+                <div layout layout-sm="column">
+                    <md-input-container flex>
+                        <label>What I am Looking for?</label>
+                        <md-select ng-model="sdfas">
+                            <md-option value="Male">Male</md-option>
+                            <md-option value="Female">Female</md-option>
+                        </md-select>
+                    </md-input-container>
+                    </div>
+                <div layout layout-sm="column">
+                    <div flex>
+                        <label>Upload your Profile Pic</label>
+                        <input type="file" accept="image/jpg">
+                    </div>
+                    <div flex>
+                        <label>Upload a video file (only 30 sec)</label>
+                        <input type="file" accept="video/3gpp">
+                    </div>
+                </div>
+                <div class="row">
+                    <md-input-container flex>
+                        <label>What I Like?</label>
+                    </md-input-container>
+                    <span class="col-md-3" ng-repeat="like in likes"><md-checkbox  value="{{like}}">{{like}}</md-checkbox></span>
+                </div>
+                <div class="row">
+                    <md-input-container flex>
+                        <label>Things I Don't Like</label>
+                        <textarea ng-model="user.biography" rows="1" md-maxlength="500"></textarea>
+                    </md-input-container>
+
+                </div>
+                <div class="row">
+                    <md-input-container flex>
+                        <label>Special Things About Me</label>
+                        <textarea ng-model="user.biography" rows="1" md-maxlength="500"></textarea>
+                    </md-input-container>
+
+                </div>
+                <div class="row">
+                    <div layout layout="column">
+                        <md-button class="btn btn-success">Submit</md-button>
+                        <md-button class="btn btn-warning">Reset</md-button>
+                    </div>
+
+                </div>
+            </md-whiteframe>
+            <div class="col-md-4">
+                <h2 class="special-text">Only $30 for a three month subscription.</h2>
+                <h3><span>Send a Contact Request</span></h3>
+                <p>Your profile will be sent to the person who want to meet. Then can decide if they would like more contact with you. Meet in our chat room first to find out more.</p>
+                <p><a href="#" role="button" class="btn btn-info btn-lg">Send</a></p>
+                <h3><span>Have fun, stay safe.</span></h3>
+                <p>We want you to have fun and enjoy yourself. Don't forget to let your parents or carers know what your are doing. Always meet in a busy public place. Never give out your financial details or personal information.</p>
+                <p><a href="#" role="button" class="btn btn-warning btn-lg">Learn more</a></p>
+
+            </div>
+        </div>
+    </div>

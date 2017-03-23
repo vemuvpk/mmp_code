@@ -1,0 +1,128 @@
+<div class="row grey-info-block">
+    <div class="container">
+        <div class="row" layout="row"  layout-sm="column" layout-margin>
+            <div flex>
+                    <md-whiteframe class="md-whiteframe-z1">
+                        <div>
+                        <md-toolbar md-scroll-shrink>
+                            <div class="md-toolbar-tools">
+                                <h3>
+                                    <span>Search</span>
+                                </h3>
+                            </div>
+                        </md-toolbar>
+                            </div>
+                        <div class="whitepanel">
+                        <form class="form" id="cvbcb">
+                            <div layout layout-sm="column">
+                                <md-input-container flex>
+                                    <label>I am</label>
+                                    <md-select ng-model="ctrl.u">
+                                        <md-option value="Male">Male</md-option>
+                                        <md-option value="Female">Female</md-option>
+                                    </md-select>
+                                </md-input-container>
+                                <md-input-container flex>
+                                    <label>Looking for</label>
+                                    <md-select ng-model="ctrl.looking">
+                                        <md-option value="Male">Male</md-option>
+                                        <md-option value="Female">Female</md-option>
+                                    </md-select>
+                                </md-input-container>
+                            </div>
+                            <div layout layout-sm="column">
+                                <md-input-container flex>
+                                        <label class="md-body-1">Age from</label>
+                                    <md-slider flex min="18" max="65" ng-model="color.red" aria-label="red" id="red-slider" class>
+                                    </md-slider>
+                                        <input ng-model="color.red" aria-label="red" aria-controls="red-slider">
+                                    </md-input-container>
+                                <md-input-container flex>
+                                        <label class="md-body-1">Age upto</label>
+                                    <md-slider flex min="18" max="65" ng-model="color.blue" aria-label="upto" id="upto-slider" class>
+                                    </md-slider>
+                                        <input ng-model="color.blue" aria-label="upto" aria-controls="upto-slider">
+                                </md-input-container>
+                            </div>
+                            <div layout layout="column">
+                                <md-input-container flex>
+                                    <google-places location=location></google-places>
+                                </md-input-container>
+                                </div>
+                            <div layout layout="column">
+                                <md-button class="btn btn-success">Search</md-button>
+                                <md-button class="btn btn-warning">Reset</md-button>
+                            </div>
+                        </form>
+                            </div>
+                    </md-whiteframe>
+            </div>
+            <div flex="40">
+                <md-whiteframe>
+                    <div>
+                        <md-toolbar md-scroll-shrink>
+                            <div class="md-toolbar-tools">
+                                <h3>
+                                    <span>Sign in</span>
+                                </h3>
+                            </div>
+                        </md-toolbar>
+                    </div>
+                    <div class="whitepanel">
+                        <form class="form" id="formLogin">
+
+                            <md-input-container>
+                                <md-icon class="email"><i class="fa fa-envelope"></i></md-icon>
+
+                                <input ng-model="user.email" type="email" placeholder="Email (required)"
+                                       ng-required="true">
+                            </md-input-container>
+                            <md-input-container>
+                                <md-icon class="name"><i class="fa fa-key"></i></md-icon>
+                                <input ng-model="user.name" type="password" placeholder="Password (required)" ng-required="true">
+                            </md-input-container>
+
+                            <md-checkbox>Remember Me?</md-checkbox>
+                            <md-input-container flex><a>Forgot Password?</a>
+                                <md-button class="btn btn-info">Sign in</md-button>
+                            </md-input-container>
+
+<div flex>
+                                <span>Don't have an Account? Become a member <a href="#/signup">here</a></span>
+    </div>
+
+                        </form>
+                    </div>
+
+                </md-whiteframe>
+
+            </div>
+
+        </div>
+        <div flex>
+            <h3>Recently joined</h3>
+            <hr>
+            <div id="portfolio" class="row no_padding title__block nothing no-margin">
+                <ul id="Grid" class="gallery">
+                    <li class="mix webdesign col-sm-4 mix_all" style="display: block; opacity: 1;"> <a href="#/viewProfile"><img alt="" src="../images/profilepic.png" class="img-thumbnail"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+                    <li class="mix printing col-sm-4 mix_all" style="display: block; opacity: 1;"> <a href="#/viewProfile"><img alt="" src="../images/profilepic.png" class="img-thumbnail"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+                    <li class="mix development col-sm-4 mix_all" style="display: block; opacity: 1;"> <a href="#/viewProfile"><img alt="" src="../images/profilepic.png" class="img-thumbnail"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+                    <li class="mix seo col-sm-4 mix_all" style="display: block; opacity: 1;"> <a href="#/viewProfile"><img alt="" src="../images/profilepic.png" class="img-thumbnail"> <span class="text">Nulla quis lectus eget<span>Lorem ipsum dolor sit amet, consectetuer.</span></span></a> </li>
+                </ul>
+
+            </div>
+
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center">
+    <div class="container">
+        <div class="row">
+            <div class="special-text well-lg text-center">
+            <h2> At Michael's Meeting Point we understand the extra requirments for people with special needs. Parents and carers are encouraged to be involved. You can have administration over this account. <strong><a href="">Click here</a> to have administration control.</strong></h2>
+                </div>
+        </div>
+    </div>
+</div>
